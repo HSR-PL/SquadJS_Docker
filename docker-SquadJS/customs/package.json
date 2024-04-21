@@ -1,0 +1,38 @@
+{
+  "name": "SquadJS",
+  "version": "4.0.0",
+  "repository": "https://github.com/Team-Silver-Sphere/SquadJS.git",
+  "author": "Thomas Smyth <https://github.com/Thomas-Smyth>",
+  "license": "BSL-1.0",
+  "private": true,
+  "workspaces": [
+    "assets",
+    "core",
+    "squad-server"
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint --fix . && prettier --write \"./**/*.js\"",
+    "lint-staged": "lint-staged",
+    "build-config": "node squad-server/scripts/build-config-file.js",
+    "build-readme": "node squad-server/scripts/build-readme.js",
+    "build-all": "node squad-server/scripts/build-config-file.js && node squad-server/scripts/build-readme.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "squad-server": "1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": "^5.2.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.8.8"
+  },
+  "packageManager": "yarn@3.6.1"
+}
