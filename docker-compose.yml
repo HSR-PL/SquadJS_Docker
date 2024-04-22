@@ -14,5 +14,3 @@ services:
       - GIT_COMMIT=${GIT_COMMIT}
       - GIT_BRANCH=${GIT_BRANCH}
       - PLUGINS_LIST=${PLUGINS_LIST}
-    profiles:
-      - squadjs
