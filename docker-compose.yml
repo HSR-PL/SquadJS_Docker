@@ -1,34 +1,4 @@
-version: '3.9'
-
-# networks:
-#   core-internal-1:
-#     driver: bridge
-#   hsr_internal:
-#     external: true
-
-
 services:
-  # mariadb:
-  #   image: mariadb:10.5.8-focal
-  #   container_name: squadjs-mariadb-1
-  #   ports:
-  #     - 5024:3306
-  #   command: --init-file /data/application/init.sql
-  #   environment:
-  #     - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-  #     - MYSQL_DATABASE=${MYSQL_DATABASE}
-  #   volumes:
-  #     - ./init.sql:/data/application/init.sql
-  #     - ${LOCAL_MOUNTS_PATH}/databases/mariadb/scripts:/docker-entrypoint-initdb.d
-  #     - ${LOCAL_MOUNTS_PATH}/databases/mariadb/data:/var/lib/mysql
-  #     - ${LOCAL_MOUNTS_PATH}/databases/mariadb/conf:/etc/mysql/conf.d
-  #   restart: always
-  #   profiles:
-  #     - db
-  #   networks:
-  #     - core-internal-1
-  #     - hsr_internal
-
   core:
     build: ./docker-SquadJS
     restart: always
@@ -46,22 +16,3 @@ services:
       - PLUGINS_LIST=${PLUGINS_LIST}
     profiles:
       - squadjs
-    # networks:
-    #   - core-internal-1
-    #   - hsr_internal
-
-  # grafana:
-  #   image: grafana/grafana
-  #   container_name: squadjs-grafana
-  #   restart: always
-  #   ports:
-  #     - 3090:3000
-  #   volumes:
-  #     - ${LOCAL_MOUNTS_PATH}/squadjs1/grafana:/var/lib/grafana
-  #   environment:
-  #     - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
-  #     - GF_USERS_ALLOW_SIGN_UP=${GF_USERS_ALLOW_SIGN_UP}
-  #   profiles:
-  #     - monitoring
-  #   networks:
-  #     - core-internal-1
